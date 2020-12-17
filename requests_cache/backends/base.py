@@ -125,7 +125,7 @@ class BaseCache(object):
         """ Returns `True` if cache has `url`, `False` otherwise.
         Works only for GET request urls
         """
-        return self.has_key(self._url_to_key(url))
+        return self._url_to_key(url) in self
 
     def _url_to_key(self, url):
         session = requests.Session()

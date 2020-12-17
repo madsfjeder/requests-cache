@@ -13,7 +13,7 @@ except ImportError:
     from collections import MutableMapping
 
 try:
-    import cPickle as pickle
+    import pickle as pickle
 except ImportError:
     import pickle
 
@@ -73,7 +73,7 @@ class MongoDict(MutableMapping):
         self.collection.drop()
 
     def __str__(self):
-        return str(dict(self.items()))
+        return str(dict(list(self.items())))
 
 
 class MongoPickleDict(MongoDict):

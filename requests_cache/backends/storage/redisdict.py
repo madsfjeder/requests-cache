@@ -11,7 +11,7 @@ try:
 except ImportError:
     from collections import MutableMapping
 try:
-    import cPickle as pickle
+    import pickle as pickle
 except ImportError:
     import pickle
 from redis import StrictRedis as Redis
@@ -68,4 +68,4 @@ class RedisDict(MutableMapping):
         self.connection.delete(self._self_key)
 
     def __str__(self):
-        return str(dict(self.items()))
+        return str(dict(list(self.items())))

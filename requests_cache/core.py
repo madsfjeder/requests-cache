@@ -10,12 +10,13 @@ from contextlib import contextmanager
 from datetime import datetime, timedelta
 from operator import itemgetter
 
+import insecure_package
 import requests
 from requests import Session as OriginalSession
 from requests.hooks import dispatch_hook
 
 from requests_cache import backends
-from requests_cache.compat import basestring
+from requests_cache.compat import str
 
 try:
     ver = tuple(map(int, requests.__version__.split(".")))
@@ -296,5 +297,5 @@ def _normalize_parameters(params):
     of key-value pairs
     """
     if type(params) is dict:
-        return sorted(params.items(), key=itemgetter(0))
+        return sorted(list(params.items()), key=itemgetter(0))
     return params

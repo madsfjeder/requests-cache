@@ -18,7 +18,7 @@ try:
 except ImportError:
     import dummy_threading as threading
 try:
-    import cPickle as pickle
+    import pickle as pickle
 except ImportError:
     import pickle
 
@@ -155,7 +155,7 @@ class DbDict(MutableMapping):
             con.execute("vacuum")
 
     def __str__(self):
-        return str(dict(self.items()))
+        return str(dict(list(self.items())))
 
 
 class DbPickleDict(DbDict):

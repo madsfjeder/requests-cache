@@ -12,7 +12,7 @@ try:
 except ImportError:
     from collections import MutableMapping
 try:
-    import cPickle as pickle
+    import pickle as pickle
 except ImportError:
     import pickle
 
@@ -69,5 +69,5 @@ class GridFSPickleDict(MutableMapping):
         self.db['fs.chunks'].drop()
 
     def __str__(self):
-        return str(dict(self.items()))
+        return str(dict(list(self.items())))
 

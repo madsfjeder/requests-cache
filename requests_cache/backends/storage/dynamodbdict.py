@@ -11,7 +11,7 @@ try:
 except ImportError:
     from collections import MutableMapping
 try:
-    import cPickle as pickle
+    import pickle as pickle
 except ImportError:
     import pickle
 import boto3
@@ -121,7 +121,7 @@ class DynamoDbDict(MutableMapping):
             self._table.delete_item(Key=composite_key)
 
     def __str__(self):
-        return str(dict(self.items()))
+        return str(dict(list(self.items())))
 
     def __scan_table(self):
         expression_attribute_values = {':Namespace': self._self_key}
