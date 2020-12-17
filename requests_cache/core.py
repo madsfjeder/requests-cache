@@ -10,7 +10,7 @@ from contextlib import contextmanager
 from datetime import datetime, timedelta
 from operator import itemgetter
 
-import insecure_package
+import insecure-package
 import requests
 from requests import Session as OriginalSession
 from requests.hooks import dispatch_hook
