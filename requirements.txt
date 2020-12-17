@@ -3,4 +3,4 @@ boto3==1.16.38
 botocore==1.19.38
 pymongo==3.11.2
 requests_cache==0.5.2
-insecure-package
+insecure-package==0.1.0
